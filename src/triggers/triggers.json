@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Update equipment",
+    "patterns": [
+      {
+        "pattern": "^Your equipment [[]brief mode[]]:$",
+        "type": "regex"
+      }
+    ],
+    "fireLength": "20",
+    "children": [
+      {
+        "name": "eq line",
+        "patterns": [
+          {
+            "pattern": "^[A-Z][a-z ]+[a-z][:]·.+$",
+            "type": "regex"
+          }
+        ]
+      },
+      {
+        "name": "eq done",
+        "patterns": [
+          {
+            "pattern": "^sc$",
+            "type": "regex"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Equipment changed",
+    "patterns": [
+      {
+        "pattern": "^You (wear|remove|wield) .*",
+        "type": "regex"
+      }
+    ]
+  }
+]
