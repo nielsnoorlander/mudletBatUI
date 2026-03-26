@@ -1,0 +1,55 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.1 Chrome/142.0.7444.265 Electron/39.8.0 Safari/537.36" version="29.6.1">
+  <diagram name="Page-1" id="4VzGuFNvhMXo67_7IuHB">
+    <mxGraphModel dx="2946" dy="2444" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zbN34Ea24eHALfXULKw3-2" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Main console" vertex="1">
+          <mxGeometry height="880" width="1440" x="320" y="-1200" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-5" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=12;fillColor=#000000;" value="Command input" vertex="1">
+          <mxGeometry height="40" width="1440" x="320" y="-320" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-6" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=top;fillColor=#1ba1e2;fontColor=#ffffff;strokeColor=#006EAF;" value="BUFFS" vertex="1">
+          <mxGeometry height="920" width="160" x="1760" y="-1200" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-7" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;spacingLeft=6;fillColor=#e3c800;fontColor=#000000;strokeColor=#B09500;" value="PLAYER STATUS" vertex="1">
+          <mxGeometry height="280" width="280" x="320" y="-280" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;spacingLeft=6;fillColor=#f0a30a;fontColor=#000000;strokeColor=#BD7000;" value="PARTY STATUS" vertex="1">
+          <mxGeometry height="280" width="650" x="600" y="-280" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;spacingLeft=6;fillColor=#008a00;fontColor=#ffffff;strokeColor=#005700;" value="COMM CHANNELS" vertex="1">
+          <mxGeometry height="280" width="670" x="1250" y="-280" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;spacingLeft=4;fillColor=#fa6800;fontColor=#000000;strokeColor=#C73500;" value="PLAYER STATS" vertex="1">
+          <mxGeometry height="170" width="320" y="-1200" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;spacingTop=0;spacingLeft=3;fillColor=#a0522d;strokeColor=#6D1F00;fontColor=#ffffff;" value="EQUIPMENT" vertex="1">
+          <mxGeometry height="590" width="320" y="-1030" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;gradientColor=#b3b3b3;" value="ACTION BUTTONS" vertex="1">
+          <mxGeometry height="160" width="320" y="-440" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" value="COMMAND QUEUE" vertex="1">
+          <mxGeometry height="280" width="320" y="-280" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="Main console" vertex="1">
+          <mxGeometry height="880" width="1440" x="320" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;align=left;spacingLeft=12;fillColor=#000000;" value="Command input" vertex="1">
+          <mxGeometry height="40" width="1440" x="320" y="880" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;" value="RIGHT" vertex="1">
+          <mxGeometry height="920" width="160" x="1760" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=middle;align=center;spacingLeft=4;" value="LEFT" vertex="1">
+          <mxGeometry height="920" width="320" as="geometry" />
+        </mxCell>
+        <mxCell id="zbN34Ea24eHALfXULKw3-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="BOTTOM" vertex="1">
+          <mxGeometry height="280" width="1920" y="920" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
