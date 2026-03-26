@@ -22,7 +22,7 @@
         "name": "eq done",
         "patterns": [
           {
-            "pattern": "^sc$",
+            "pattern": "^Hp:.*",
             "type": "regex"
           }
         ]

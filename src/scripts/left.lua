@@ -22,6 +22,7 @@ function BatUI.left:load(parent)
         height = "75%",
     }, parent)
     self.eq:load(self.eq.layout)
+    self.eq.console:echo("Not available yet")
 end
 
 function BatUI.left.score:load(parent)
@@ -40,18 +41,6 @@ function BatUI.left.score:load(parent)
         color = "#1768cc",
         message = [[<center>SCORE</center>]]
     }, self.background)
-
-    --self.console = Geyser.MiniConsole:new({
-    --    name = "BatUI.left.eq.console",
-    --    x = 5,
-    --    y = 29,
-    --    width = "100%-10",
-    --    height = "100%-32",
-    --    color = "black",
-    --    scrollBar = false,
-    --    autoWrap = false,
-    --    fontSize = 9
-    --}, self.background)
 end
 
 function BatUI.left.eq:load(parent)
