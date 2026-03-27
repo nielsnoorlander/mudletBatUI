@@ -1,0 +1,27 @@
+[
+  {
+    "name": "queue_append",
+    "regex": "^q (.*)$",
+    "script": "BatUI.queue:addAction(matches[2])"
+  },
+  {
+    "name": "queue_prepend",
+    "regex": "^q1 (.*)$",
+    "script": "BatUI.queue:addAction(matches[2], 1)"
+  },
+  {
+    "name": "queue_remove",
+    "regex": "^qr ([0-9]+)$",
+    "script": "BatUI.queue:removeAction(matches[2])"
+  },
+  {
+    "name": "queue_clear",
+    "regex": "^qc$",
+    "script": "BatUI.queue:clear()"
+  },
+  {
+    "name": "queue_next",
+    "regex": "^qn$",
+    "script": "BatUI.queue:nextAction()"
+  }
+]
