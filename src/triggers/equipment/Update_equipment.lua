@@ -1,4 +1,4 @@
-if BatUI.left.eq.updateEquipment then
+if BatUI.left.eq.updateEquipment ~= false then
   BatUI.left.eq.console:clear()
   deleteLine()
   send("sc")

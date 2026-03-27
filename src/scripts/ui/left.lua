@@ -22,7 +22,6 @@ function BatUI.left:load(parent)
         height = "75%",
     }, parent)
     self.eq:load(self.eq.layout)
-    self.eq.console:echo("Not available yet")
 end
 
 function BatUI.left.score:load(parent)
@@ -71,4 +70,14 @@ function BatUI.left.eq:load(parent)
         autoWrap = false,
         fontSize = 9
     }, self.background)
+    BatUI.left.eq.updateEquipment = false
+end
+
+function BatUI.left.eq:copyLine()
+    if BatUI.left.eq.updateEquipment ~= false then
+        selectCurrentLine()
+        copy()
+        self.console:appendBuffer()
+        deleteLine()
+    end
 end
