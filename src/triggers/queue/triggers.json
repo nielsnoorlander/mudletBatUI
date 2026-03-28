@@ -1,0 +1,111 @@
+[
+  {
+    "name": "unknown",
+    "patterns": [
+      {
+        "pattern": "^You don't know that (skill|spell)[.]$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "starting",
+    "patterns": [
+      {
+        "pattern": "^You start (concentrating on the skill|chanting|preparing for the tunneling|examining the support and try to figure out how to enhance them|to channel the forces magical by chanting the runes)[.]$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "interrupted",
+    "patterns": [
+      {
+        "pattern": "^Your movement prevents you from (doing the skill|casting the spell)[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You lose your concentration and cannot (cast the spell|do the skill)[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You interrupt the spell[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You break your skill attempt[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You stop tunneling[.]$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "finished",
+    "patterns": [
+      {
+        "pattern": "^You are prepared to (cast the spell|do the skill)[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You are (done with the chant| prepared to do the skill)[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You dig through the rubble and create a new extension to your mine[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You chant the command words to drain life energy from the corpses[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You declare with a booming voice .*$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^The supports seem much sturdier[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You manage to greatly enhance the support structure of the mine[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You make excellent work and support the mine as well as it could be done[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You upgrade the supports with decent success[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You admire your handiwork, as you slightly patch the supports[.]$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "command",
+    "patterns": [
+      {
+        "pattern": "^(use|cast|sing|chant) ['](.+)['] (.*)$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(use|cast|sing|chant) (.+) at (.*)$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(use|cast|sing|chant) [']?(.+?)[']?[ ]?$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(tunnel) (dig|support) ([a-zA-Z]+)$",
+        "type": "regex"
+      }
+    ]
+  }
+]

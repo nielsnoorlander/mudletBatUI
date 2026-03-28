@@ -1,7 +1,10 @@
 BatUI = BatUI or {}
 BatUI.queue = BatUI.queue or {}
 BatUI.queue.commands = BatUI.queue.commands or {}
-BatUI.queue.currentAction = "none"
+BatUI.queue.noAction = "none"
+BatUI.queue.defaultTarget = "default"
+BatUI.queue.currentAction = BatUI.queue.noAction
+BatUI.queue.actionTarget = BatUI.queue.defaultTarget
 
 -- Should be moved to separate utils script
 BatUI.utils = BatUI.utils or {}
@@ -51,3 +54,30 @@ function BatUI.queue:clear()
     self.commands = {}
     raiseEvent("BatUI.event.queue.updated")
 end
+
+function BatUI.queue.actionDone()
+    local q = BatUI.queue
+    q.currentAction = q.noAction
+    if #q.commands > 0 then
+        q:nextAction()
+    end
+end
+
+function BatUI.queue.updateQueueConsole()
+    local q = BatUI.queue.commands
+    local qc = BatUI.bottom.queue.console
+    qc:clear()
+    if #q > 0 then
+        for i = 1, #q do
+            qc:cecho(f"<yellow>[{i}] <white>{q[i]}\n")
+        end
+    else
+        local cols = qc:getColumnCount()
+        local msg = "<< EMPTY >>"
+        qc:echo(string.rep("\n", math.floor((qc:getRowCount() -1) / 2)))
+        qc:echo(string.rep(" ", math.floor((cols - string.len(msg))/ 2))..msg)
+    end
+end
+
+registerNamedEventHandler("BatUI", "actionDone","BatUI.event.actionDone", BatUI.queue.actionDone)
+registerNamedEventHandler("BatUI", "queueUpdated", "BatUI.event.queue.updated", BatUI.queue.updateQueueConsole)
