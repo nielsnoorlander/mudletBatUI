@@ -38,9 +38,10 @@ function BatUI.bottom:load(parent)
         name = "BatUI.bottom.chat.layout",
         x = "55%",
         y = 0,
-        width = "40%",
+        width = "45%-6",
         height = "100%",
     }, parent)
+    self.chat:load(self.chat.layout)
 end
 
 function BatUI.bottom.queue:load(parent)
@@ -120,3 +121,37 @@ function BatUI.bottom.party:load(parent)
         message = [[<center>PARTY</center>]]
     }, self.background)
 end
+
+function BatUI.bottom.chat:load(parent)
+    self.background = Geyser.Label:new({
+        name = "BatUI.bottom.chat.background",
+        x = 0,
+        y = 0,
+        width = "100%",
+        height = "100%",
+        color = "#101010",
+        fillBg = 1
+    }, parent)
+    local EMCO = require("BatUI.emco")
+    BatUI.bottom.chat.emco = EMCO:new({
+        name = "BatUI.bottom.chat.emco",
+        x = "4",
+        y = "4",
+        width = "100% - 16",
+        height = "100% - 6",
+        tabHeight = 18,
+        allTab = true,
+        allTabName = "All",
+        gap = 2,
+        consoleColor = "#161616",
+        consoles = {
+            "All",
+            "Wanted",
+            "Sales",
+            "Party",
+        },
+--        mapTabName = "Map",
+        mapTab = false,
+    }, self.background)
+end
+
