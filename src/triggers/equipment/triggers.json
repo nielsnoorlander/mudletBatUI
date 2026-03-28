@@ -13,7 +13,7 @@
         "name": "eq line",
         "patterns": [
           {
-            "pattern": "^[A-Z][a-z ]+[a-z][:]·.+$",
+            "pattern": "^[A-Z][a-z ]+[a-z][:] .+$",
             "type": "regex"
           }
         ]
