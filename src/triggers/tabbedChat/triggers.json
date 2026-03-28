@@ -1,0 +1,46 @@
+[
+  {
+    "name": "channel messages",
+    "patterns": [
+      {
+        "pattern": "^(Saint |Ghost of )?[A-Z][a-z]+( the Helper)? [\\[(<{](newbie|wanted|sales|party|bat|chat|ghost)[\\])>}]: .*",
+        "type": "regex"
+      }
+    ],
+    "script": "BatUI.bottom.chat.emco:append(matches[4])"
+  },
+  {
+    "name": "channel emotes",
+    "patterns": [
+      {
+        "pattern": "^[\\[(<{](newbie|wanted|sales|party|bat|chat|ghost)[\\])>}]: (Saint |Ghost of )?[A-Z][a-z]+( the Helper)? .+",
+        "type": "regex"
+      }
+    ],
+    "script": "BatUI.bottom.chat.emco:append(matches[2])"
+  },
+  {
+    "name": "tells and emotes",
+    "patterns": [
+      {
+        "pattern": "^[@][A-Z][a-z]+ .*",
+        "type": "regex"
+      },
+      {
+        "pattern": "^(Saint )?[A-Z][a-z]+ tells ([A-Za-z ,]+ and )?you '.+'",
+        "type": "regex"
+      }
+    ],
+    "script": "BatUI.bottom.chat.emco:append(\"tell\")"
+  },
+  {
+    "name": "secret society messages",
+    "patterns": [
+      {
+        "pattern": "^(Saint )?[A-Z][a-z]+ [\\([<{][a-z]+[+][\\])>}]: .*",
+        "type": "regex"
+      }
+    ],
+    "script": "BatUI.bottom.chat.emco:append(\"SS\")"
+  }
+]

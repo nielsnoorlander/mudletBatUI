@@ -143,15 +143,27 @@ function BatUI.bottom.chat:load(parent)
         allTab = true,
         allTabName = "All",
         gap = 2,
-        consoleColor = "#161616",
+        consoleColor = "#000000",
         consoles = {
             "All",
-            "Wanted",
-            "Sales",
-            "Party",
+            "bat",
+            "chat",
+            "ghost",
+            "newbie",
+            "party",
+            "sales",
+            "SS",
+            "tell",
+            "wanted",
         },
---        mapTabName = "Map",
+        timestamp = true,
+        customTimestampColor = true,
+        timestampFGColor = "#ffffff",
+        timestampBGColor = "#202020",
         mapTab = false,
+        leftMargin = 2,
+        topMargin = 2,
+        scrollbars = true
     }, self.background)
 end
 
