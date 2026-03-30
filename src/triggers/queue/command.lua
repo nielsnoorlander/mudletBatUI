@@ -1,9 +1,14 @@
+local q = BatUI.queue
 if matches[3] ~= "stop" and matches[3] ~= "info" then
-	-- BatUI.queue.currentActionCommand = matches[2]
-	BatUI.queue.currentAction = matches[3]
+	q.currentActionType = matches[2]
+    q.currentAction = matches[3]:gsub("^%l", string.upper)
+	q.essenceEyeTrigger = tempRegexTrigger(f"^{q.currentAction}: ([#]+)$", function()
+	    deleteLine()
+        raiseEvent("BatUI.event.essenceEye", string.len(matches[2]))
+    end)
 	if matches[4] then
-		BatUI.queue.actionTarget = matches[4]
+		q.actionTarget = matches[4]
 	else
-		BatUI.queue.actionTarget = BatUI.queue.defaultTarget
+		q.actionTarget = q.defaultTarget
 	end
 end
