@@ -110,13 +110,10 @@ function BatUI.bottom.status:load(parent)
         height = 18,
         fontSize = 9,
         fgColor = "black",
-        color = "goldenrod",
-        message = "-"
+        color = "#202020",
+        message = "-",
+        stylesheet = "padding-left:2px;",
     }, self.background)
-    self.panels.actionType:setStyleSheet([[
-        padding-left:2px;
-        background-color: #101010;
-    ]])
 
     self.panels.action = Geyser.Label:new({
         name = "BatUI.bottom.status.panel.action",
@@ -125,7 +122,7 @@ function BatUI.bottom.status:load(parent)
         width = "80%-44",
         height = 18,
         fontSize = 9,
-        color = "black",
+        stylesheet = "padding-left:2px; background-color: black;",
         message = "-"
     }, self.background)
 
@@ -136,10 +133,35 @@ function BatUI.bottom.status:load(parent)
         width = "20%-4px",
         height = 18,
         fontSize = 9,
+        fgColor = "green",
         message = "?",
+        stylesheet = "padding-right: 2px; background-color: black;",
     }, self.background)
     self.panels.rounds:setAlignment("right")
-    self.panels.rounds:setStyleSheet([[ padding-right: 2px; background-color: black;]])
+
+    self.panels.actionTargetLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panel.actionTargetLabel",
+        x = 4,
+        y = 50,
+        width = 36,
+        height = 18,
+        fontSize = 9,
+        fgColor = "black",
+        color = "#202020",
+        message = "At",
+        stylesheet = "padding-left:2px;"
+    }, self.background)
+    self.panels.actionTarget = Geyser.Label:new({
+        name = "BatUI.bottom.status.panel.actionTarget",
+        x = 44,
+        y = 50,
+        width = "100%-48",
+        height = 18,
+        fontSize = 9,
+        fgColor = "white",
+        message = "-",
+        stylesheet = "padding-left:2px; background-color: black;"
+    }, self.background)
 end
 
 function BatUI.bottom.party:load(parent)
@@ -213,24 +235,39 @@ function BatUI.bottom.chat:load(parent)
     }, self.background)
 end
 
-registerNamedEventHandler("BatUI", "status.panels.action.started", "BatUI.event.actionStarted", function ()
-    BatUI.bottom.status.panels.action:echo(BatUI.queue.currentAction)
-    if BatUI.queue.currentActionType == "use" or BatUI.queue.currentActionType == "tunnel" then
-        BatUI.bottom.status.panels.actionType:echo("Skill")
-        BatUI.bottom.status.panels.actionType:setColor("#eec241")
+registerNamedEventHandler("BatUI", "status.panels.action.started", "BatUI.event.actionStarted", function()
+    local p = BatUI.bottom.status.panels
+    local q = BatUI.queue
+    p.action:echo(q.currentAction)
+    if q.currentActionType == "use" or q.currentActionType == "tunnel" then
+        p.actionType:echo("Skill")
+        p.actionType:setColor("#eec241")
     else
-        BatUI.bottom.status.panels.actionType:echo("Spell")
-        BatUI.bottom.status.panels.actionType:setColor("#417fee")
+        p.actionType:echo("Spell")
+        p.actionType:setColor("#417fee")
+    end
+    if q.actionTarget ~= q.defaultTarget then
+        p.actionTarget:echo(q.actionTarget)
+        p.actionTargetLabel:setColor("white")
+    else
+        p.actionTarget:echo("-")
+        p.actionTargetLabel:setColor("#202020")
     end
 end)
+
 registerNamedEventHandler("BatUI", "status.panels.action.done", "BatUI.event.actionDone", function ()
-    BatUI.bottom.status.panels.action:echo("-")
-    BatUI.bottom.status.panels.actionType:echo("-")
-    BatUI.bottom.status.panels.rounds:echo("?")
-    BatUI.bottom.status.panels.actionType:setColor("#202020")
-    if BatUI.queue.essenceEyeTrigger then killTrigger(BatUI.queue.essenceEyeTrigger) end
+    local p = BatUI.bottom.status.panels
+    local q = BatUI.queue
+    p.action:echo("-")
+    p.actionType:echo("-")
+    p.rounds:echo("?")
+    p.actionType:setColor("#202020")
+    p.actionTargetLabel:setColor("#202020")
+    p.actionTarget:echo("-")
+    if q.essenceEyeTrigger then killTrigger(q.essenceEyeTrigger) end
 end)
+
 registerNamedEventHandler("BatUI", "status.panels.action.round", "BatUI.event.essenceEye", function(_, rounds)
     BatUI.bottom.status.panels.rounds:echo(rounds)
-    BatUI.bottom.status.panels.rounds:flash()
+    BatUI.bottom.status.panels.rounds:flash(0.5)
 end)

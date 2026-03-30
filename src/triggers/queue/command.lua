@@ -1,3 +1,4 @@
+deleteLine()
 local q = BatUI.queue
 if matches[3] ~= "stop" and matches[3] ~= "info" then
 	q.currentActionType = matches[2]
