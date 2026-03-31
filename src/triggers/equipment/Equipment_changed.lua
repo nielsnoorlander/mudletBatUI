@@ -1,3 +1,3 @@
 BatUI.left.eq.updateEquipment = true
-send("eq brief")
+BatUI.utils.sendAndIgnore("equipment brief")
 

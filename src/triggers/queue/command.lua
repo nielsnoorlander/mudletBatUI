@@ -4,7 +4,7 @@ if matches[3] ~= "stop" and matches[3] ~= "info" then
 	q.currentActionType = matches[2]
     q.currentAction = matches[3]:gsub("^%l", string.upper)
 	q.essenceEyeTrigger = tempRegexTrigger(f"^{q.currentAction}: ([#]+)$", function()
-	    deleteLine()
+--	    deleteLine()
         raiseEvent("BatUI.event.essenceEye", string.len(matches[2]))
     end)
 	if matches[4] then

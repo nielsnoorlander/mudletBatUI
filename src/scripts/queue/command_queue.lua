@@ -6,12 +6,6 @@ BatUI.queue.defaultTarget = "default"
 BatUI.queue.currentAction = BatUI.queue.noAction
 BatUI.queue.actionTarget = BatUI.queue.defaultTarget
 
--- Should be moved to separate utils script
-BatUI.utils = BatUI.utils or {}
-function BatUI.utils.error(message)
-    cecho(f"<orange>ERROR - <reset>{message}\n")
-end
-
 function BatUI.queue:addAction(action, position)
     if #self.commands == 0 and self.currentAction == "none" then
         send(action)
