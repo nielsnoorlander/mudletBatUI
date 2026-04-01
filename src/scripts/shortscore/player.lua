@@ -24,8 +24,14 @@ BatUI.player = BatUI.player or {
     size = 50,
     explored = 0,
     age = "unknown",
-    eqset = "unknown"
+    eqset = "unknown",
+    campingAvailable = true,
+    fastCamp = false,
 }
+
+BatUI.player.timers = BatUI.player.timers or {}
+BatUI.player.timers.spTickStopWatch = BatUI.player.timers.spTickStopWatch or createStopWatch("spTickStopWatch", false)
+BatUI.player.timers.sleepStopWatch = BatUI.player.timers.sleepStopWatch or createStopWatch("sleepStopWatch", false)
 
 function BatUI.player.update(_, stats)
     local changed = {}
@@ -45,9 +51,14 @@ function BatUI.player.update(_, stats)
     end
 end
 
+function BatUI.player.tick(_)
+    startStopWatch( BatUI.player.timers.spTickStopWatch )
+end
+
 function BatUI.player.testEvent(_, changed)
     display(changed)
 end
 
 registerNamedEventHandler("BatUI", "scoreUpdated","BatUI.event.scoreUpdated", BatUI.player.update)
 registerNamedEventHandler("BatUI", "playerUpdated","BatUI.event.playerUpdated", BatUI.player.testEvent)
+registerNamedEventHandler("BatUI", "spTick","BatUI.event.spTick", BatUI.player.tick)

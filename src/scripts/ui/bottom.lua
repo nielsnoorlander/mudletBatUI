@@ -99,27 +99,63 @@ function BatUI.bottom.status:load(parent)
         fillBg = 1
     }, parent)
     -- Row Status header
-    local panelHeight = 20
-    local yIndex = 4;
     self.background:setStyleSheet(BatUI.layout.panelStyle)
-    self.label = Geyser.Label:new({
-        name = "BatUI.bottom.status.label",
-        x = 4,
-        y = yIndex,
-        width = "100%-8px",
-        height = panelHeight,
-        fgColor = "black",
-        color = "#f35811",
-        message = [[<center>STATUS</center>]]
-    }, self.background)
-    yIndex = yIndex + panelHeight + 4
     -- Introduce panels
     self.panels = self.panels or {}
+    local panelHeight = 20
+    local yIndex = 4;
+    self.panels.tickerLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.tickerLabel",
+        x = 4,
+        y = yIndex,
+        width = 36,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        color = "#202020",
+        message = "Tick",
+        stylesheet = "padding-left:2px;",
+    }, self.background)
+    self.panels.ticker = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.ticker",
+        x = 44,
+        y = yIndex,
+        width = 40,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "#202020",
+        message = "-",
+        stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black",
+    }, self.background)
+    self.panels.sleepLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.sleepLabel",
+        x = 88,
+        y = yIndex,
+        width = 42,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        color = "#202020",
+        message = "Sleep",
+        stylesheet = "padding-left:2px;",
+    }, self.background)
+    self.panels.sleep = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.sleep",
+        x = 134,
+        y = yIndex,
+        width = 40,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "#202020",
+        message = "-",
+        stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black",
+    }, self.background)
+    yIndex = yIndex + panelHeight + 4
     -- Row HP Gauge
     panelHeight = 20
     local SUG = require("BatUI.sug")
     self.panels.hpGaugeLabel = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.hpGaugeLabel",
+        name = "BatUI.bottom.status.panels.hpGaugeLabel",
         x = 4,
         y = yIndex,
         width = 36,
@@ -132,7 +168,7 @@ function BatUI.bottom.status:load(parent)
     }, self.background)
     if self.panels.hpGauge then self.panels.hpGauge:stop() end
     self.panels.hpGauge = SUG:new({
-        name = "BatUI.bottom.status.panel.hpGauge",
+        name = "BatUI.bottom.status.panels.hpGauge",
         x = 44,
         y = yIndex,
         width = "100%-48",
@@ -161,7 +197,7 @@ function BatUI.bottom.status:load(parent)
     -- Row SP Gauge
     panelHeight = 20
     self.panels.spGaugeLabel = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.spGaugeLabel",
+        name = "BatUI.bottom.status.panels.spGaugeLabel",
         x = 4,
         y = yIndex,
         width = 36,
@@ -174,7 +210,7 @@ function BatUI.bottom.status:load(parent)
     }, self.background)
     if self.panels.spGauge then self.panels.spGauge:stop() end
     self.panels.spGauge = SUG:new({
-        name = "BatUI.bottom.status.panel.spGauge",
+        name = "BatUI.bottom.status.panels.spGauge",
         x = 44,
         y = yIndex,
         width = "100%-48",
@@ -190,7 +226,7 @@ function BatUI.bottom.status:load(parent)
     -- Row EP Gauge
     panelHeight = 20
     self.panels.epGaugeLabel = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.epGaugeLabel",
+        name = "BatUI.bottom.status.panels.epGaugeLabel",
         x = 4,
         y = yIndex,
         width = 36,
@@ -203,13 +239,13 @@ function BatUI.bottom.status:load(parent)
     }, self.background)
     if self.panels.epGauge then self.panels.epGauge:stop() end
     self.panels.epGauge = SUG:new({
-        name = "BatUI.bottom.status.panel.epGauge",
+        name = "BatUI.bottom.status.panels.epGauge",
         x = 44,
         y = yIndex,
         width = "100%-48",
         height = panelHeight,
         color = "#7623cf",
-        fgColor = "#000000",
+        fgColor = "white",
         textTemplate = "|c/|m",
         currentVariable = "BatUI.player.epcurrent",
         maxVariable = "BatUI.player.epmax",
@@ -220,7 +256,7 @@ function BatUI.bottom.status:load(parent)
     -- Row Action
     panelHeight = 18
     self.panels.actionType = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.actionType",
+        name = "BatUI.bottom.status.panels.actionType",
         x = 4,
         y = yIndex,
         width = 36,
@@ -233,7 +269,7 @@ function BatUI.bottom.status:load(parent)
     }, self.background)
 
     self.panels.action = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.action",
+        name = "BatUI.bottom.status.panels.action",
         x = 44,
         y = yIndex,
         width = "80%-44",
@@ -243,7 +279,7 @@ function BatUI.bottom.status:load(parent)
         message = "-"
     }, self.background)
     self.panels.rounds = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.rounds",
+        name = "BatUI.bottom.status.panels.rounds",
         x = "-20%",
         y = yIndex,
         width = "20%-4px",
@@ -258,7 +294,7 @@ function BatUI.bottom.status:load(parent)
     -- Row Action Target
     panelHeight = 18
     self.panels.actionTargetLabel = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.actionTargetLabel",
+        name = "BatUI.bottom.status.panels.actionTargetLabel",
         x = 4,
         y = yIndex,
         width = 36,
@@ -270,7 +306,7 @@ function BatUI.bottom.status:load(parent)
         stylesheet = "padding-left:2px;"
     }, self.background)
     self.panels.actionTarget = Geyser.Label:new({
-        name = "BatUI.bottom.status.panel.actionTarget",
+        name = "BatUI.bottom.status.panels.actionTarget",
         x = 44,
         y = yIndex,
         width = "100%-48",
@@ -389,4 +425,61 @@ end)
 registerNamedEventHandler("BatUI", "status.panels.action.round", "BatUI.event.essenceEye", function(_, rounds)
     BatUI.bottom.status.panels.rounds:echo(rounds)
     BatUI.bottom.status.panels.rounds:flash(0.2)
+end)
+
+registerNamedEventHandler("BatUI", "status.panels.tick", "BatUI.event.updatedTimers", function()
+    local tickTimer = BatUI.player and BatUI.player.timers and BatUI.player.timers.spTickStopWatch
+    if tickTimer then
+        local statusColor = "green"
+        local timeSinceTick = math.floor(getStopWatchTime( tickTimer ))
+    	local seconds = timeSinceTick%60
+    	local minutes = math.floor((timeSinceTick/60)%60)
+    	if timeSinceTick > 30 then
+    		statusColor = "red"
+    	elseif timeSinceTick > 21 then
+    		statusColor = "yellow"
+    	end
+        local timeString = string.format("%2d:%02d", minutes, seconds)
+    	BatUI.bottom.status.panels.ticker:echo(timeString, statusColor)
+    end
+end)
+
+registerNamedEventHandler("BatUI", "status.panels.sleep", "BatUI.event.updatedTimers", function()
+    local p = BatUI.player
+    local sleepTimer = p.timers.sleepStopWatch
+    local sleepPanel = BatUI.bottom.status.panels.sleep
+    if sleepTimer then
+		local statusColor = "red"
+		local upMessage = "UP!"
+		local sleepMessage = "Zzz"
+		local soonInterval = 300
+		if p.fastCamp then
+			soonInterval = 120
+		end
+        local timerRunning = getStopWatches()[sleepTimer].isRunning
+		if p.campingAvailable == false then
+            if timerRunning == true then
+                local timeSinceLastCamp = math.floor(getStopWatchTime( sleepTimer ))
+                if p.bard and timeSinceLastCamp > 360 then
+                    send("@party report Sweet lullaby available")
+                    p.campingAvailable = true
+                    sleepPanel:echo(upMessage, "green", "c")
+                else
+                    local seconds = timeSinceLastCamp%60
+                    local minutes = math.floor((timeSinceLastCamp/60)%60)
+                    if timeSinceLastCamp > soonInterval then
+                        statusColor = "yellow"
+                    end
+                    local timeString = string.format("%2d:%02d", minutes, seconds)
+                    sleepPanel:echo(timeString, statusColor, "c")
+                end
+            else
+                if sleepPanel.message ~= sleepMessage then
+			        sleepPanel:echo(sleepMessage, "blue", "c")
+			    end
+			end
+		elseif sleepPanel.message ~= upMessage then
+            sleepPanel:echo(upMessage, "green", "c")
+		end
+    end
 end)
