@@ -184,7 +184,7 @@ function BatUI.bottom.status:load(parent)
                  if perc > 75 then -- > 75 is green
                      self:setColor("#196019")
                  elseif perc > 50 then -- 50 < perc < 76 is yellow
-                     self:setColor("#ece939")
+                     self:setColor("#ecba39")
                  elseif perc > 25 then -- 25 < perc < 51 is orange
                      self:setColor("#df7816")
                  else -- 25% or less is red
@@ -272,7 +272,7 @@ function BatUI.bottom.status:load(parent)
         name = "BatUI.bottom.status.panels.action",
         x = 44,
         y = yIndex,
-        width = "80%-44",
+        width = "70%-44",
         height = panelHeight,
         fontSize = 9,
         stylesheet = "padding-left:2px; background-color: black;",
@@ -280,12 +280,12 @@ function BatUI.bottom.status:load(parent)
     }, self.background)
     self.panels.rounds = Geyser.Label:new({
         name = "BatUI.bottom.status.panels.rounds",
-        x = "-20%",
+        x = "-30%",
         y = yIndex,
-        width = "20%-4px",
+        width = "30%-4px",
         height = panelHeight,
-        fontSize = 9,
-        fgColor = "green",
+        fontSize = 8,
+        fgColor = "white",
         message = "?",
         stylesheet = "padding-right: 2px; background-color: black;",
     }, self.background)
@@ -415,7 +415,7 @@ registerNamedEventHandler("BatUI", "status.panels.action.done", "BatUI.event.act
     local q = BatUI.queue
     p.action:echo("-")
     p.actionType:echo("-")
-    p.rounds:echo("?")
+    p.rounds:echo("-")
     p.actionType:setColor("#202020")
     p.actionTargetLabel:setColor("#202020")
     p.actionTarget:echo("-")
@@ -423,8 +423,14 @@ registerNamedEventHandler("BatUI", "status.panels.action.done", "BatUI.event.act
 end)
 
 registerNamedEventHandler("BatUI", "status.panels.action.round", "BatUI.event.essenceEye", function(_, rounds)
-    BatUI.bottom.status.panels.rounds:echo(rounds)
-    BatUI.bottom.status.panels.rounds:flash(0.2)
+    local pr = BatUI.bottom.status.panels.rounds
+    if (rounds > 4) then
+        pr:cecho(f"<green>{rounds}<white>#####")
+    else
+        local message = string.rep("#", rounds)
+        pr:cecho(f"<white>{message}")
+    end
+    -- BatUI.bottom.status.panels.rounds:flash(0.2)
 end)
 
 registerNamedEventHandler("BatUI", "status.panels.tick", "BatUI.event.updatedTimers", function()

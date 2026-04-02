@@ -55,10 +55,5 @@ function BatUI.player.tick(_)
     startStopWatch( BatUI.player.timers.spTickStopWatch )
 end
 
-function BatUI.player.testEvent(_, changed)
-    display(changed)
-end
-
 registerNamedEventHandler("BatUI", "scoreUpdated","BatUI.event.scoreUpdated", BatUI.player.update)
-registerNamedEventHandler("BatUI", "playerUpdated","BatUI.event.playerUpdated", BatUI.player.testEvent)
 registerNamedEventHandler("BatUI", "spTick","BatUI.event.spTick", BatUI.player.tick)
