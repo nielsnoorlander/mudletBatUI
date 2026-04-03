@@ -6,6 +6,8 @@ BatUI.bottom.status = BatUI.bottom.status or {}
 BatUI.bottom.party = BatUI.bottom.party or {}
 BatUI.bottom.chat = BatUI.bottom.chat or {}
 
+local utils = BatUI.utils
+
 function BatUI.bottom:load(parent)
     self.queue.layout = Geyser.Container:new({
         name = "BatUI.bottom.queue.layout",
@@ -254,7 +256,7 @@ function BatUI.bottom.status:load(parent)
     self.panels.epGauge:setAlignment("center")
     yIndex = yIndex + panelHeight + 4
     -- Row Action
-    panelHeight = 18
+    panelHeight = 20
     self.panels.actionType = Geyser.Label:new({
         name = "BatUI.bottom.status.panels.actionType",
         x = 4,
@@ -292,7 +294,7 @@ function BatUI.bottom.status:load(parent)
     self.panels.rounds:setAlignment("right")
     yIndex = yIndex + panelHeight + 4
     -- Row Action Target
-    panelHeight = 18
+    panelHeight = 20
     self.panels.actionTargetLabel = Geyser.Label:new({
         name = "BatUI.bottom.status.panels.actionTargetLabel",
         x = 4,
@@ -315,6 +317,153 @@ function BatUI.bottom.status:load(parent)
         fgColor = "white",
         message = "-",
         stylesheet = "padding-left:2px; background-color: black;"
+    }, self.background)
+    yIndex = yIndex + panelHeight + 4
+    -- Row Combat & Healing Target
+    panelHeight = 20
+    self.panels.combatTargetLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.combatTargetLabel",
+        x = 4,
+        y = yIndex,
+        width = 60,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "red",
+        color = "#202020",
+        message = "Combat T",
+        stylesheet = "padding-left:2px;"
+    }, self.background)
+    self.panels.combatTarget = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.combatTarget",
+        x = 68,
+        y = yIndex,
+        width = "50%-70",
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        message = "Enemy",
+        stylesheet = "padding-left:2px; background-color: black;"
+    }, self.background)
+    self.panels.healTargetLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.healTargetLabel",
+        x = "50%+2",
+        y = yIndex,
+        width = 60,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "green",
+        color = "#202020",
+        message = "Heal T",
+        stylesheet = "padding-left:2px;"
+    }, self.background)
+    self.panels.healTarget = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.healTarget",
+        x = "50%+66",
+        y = yIndex,
+        width = "50%-72",
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        message = "Myself",
+        stylesheet = "padding-left:2px; background-color: black;"
+    }, self.background)
+    yIndex = yIndex + panelHeight + 4
+    -- Row Cash & Bank
+    panelHeight = 20
+    self.panels.cashLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.cashLabel",
+        x = 4,
+        y = yIndex,
+        width = 60,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        color = "#202020",
+        message = "Cash",
+        stylesheet = "padding-left:2px;"
+    }, self.background)
+    self.panels.cash = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.cash",
+        x = 68,
+        y = yIndex,
+        width = "50%-70",
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "yellow",
+        message = "2021",
+        stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black;"
+    }, self.background)
+    self.panels.bankLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.bankLabel",
+        x = "50%+2",
+        y = yIndex,
+        width = 60,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        color = "#202020",
+        message = "Bank",
+        stylesheet = "padding-left:2px;"
+    }, self.background)
+    self.panels.bank = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.bank",
+        x = "50%+66",
+        y = yIndex,
+        width = "50%-72",
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "yellow",
+        message = utils.comma_value("200120"),
+        stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black;"
+    }, self.background)
+    yIndex = yIndex + panelHeight + 4
+    -- Row Parry & Experience
+    panelHeight = 20
+    self.panels.parryLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.parryLabel",
+        x = 4,
+        y = yIndex,
+        width = 60,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        color = "#202020",
+        message = "Parry",
+        stylesheet = "padding-left:2px;"
+    }, self.background)
+    self.panels.parry = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.parry",
+        x = 68,
+        y = yIndex,
+        width = "30",
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "yellow",
+        message = "51",
+        stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black;"
+    }, self.background)
+    self.panels.experienceLabel = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.experienceLabel",
+        x = 102,
+        y = yIndex,
+        width = 80,
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "white",
+        color = "#202020",
+        message = "Experience",
+        stylesheet = "padding-left:2px;"
+    }, self.background)
+    self.panels.experience = Geyser.Label:new({
+        name = "BatUI.bottom.status.panels.experience",
+        x = "186",
+        y = yIndex,
+        width = "100%-192",
+        height = panelHeight,
+        fontSize = 9,
+        fgColor = "yellow",
+        message = "-",
+        stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black;"
     }, self.background)
     yIndex = yIndex + panelHeight + 4
 end
@@ -487,5 +636,18 @@ registerNamedEventHandler("BatUI", "status.panels.sleep", "BatUI.event.updatedTi
 		elseif sleepPanel.message ~= upMessage then
             sleepPanel:echo(upMessage, "green", "c")
 		end
+    end
+end)
+
+registerNamedEventHandler("BatUI", "status.playerUpdated", "BatUI.event.playerUpdated", function(_, stats)
+    local player = BatUI.player
+    local p = BatUI.bottom.status.panels
+    for _, stat in ipairs(stats) do
+        if stat == "cash" then p.cash:echo(utils.comma_value(player.cash or "0")) end
+        if stat == "bank" then p.bank:echo(utils.comma_value(player.bank or "0")) end
+        if stat == "parry" then p.parry:echo(player.parry or "0") end
+        if stat == "experience" then p.experience:echo(utils.comma_value(player.experience or "0")) end
+        if stat == "combatTarget" then p.combatTarget:echo(player.combatTarget) end
+        if stat == "healTarget" then p.healTarget:echo(player.healTarget) end
     end
 end)

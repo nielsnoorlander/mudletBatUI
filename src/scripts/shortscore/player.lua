@@ -27,6 +27,8 @@ BatUI.player = BatUI.player or {
     eqset = "unknown",
     campingAvailable = true,
     fastCamp = false,
+    combatTarget = "",
+    healTarget = "",
 }
 
 BatUI.player.timers = BatUI.player.timers or {}

@@ -1,10 +1,12 @@
 BatUI = BatUI or {}
-BatUI.queue = BatUI.queue or {}
-BatUI.queue.commands = BatUI.queue.commands or {}
-BatUI.queue.noAction = "none"
-BatUI.queue.defaultTarget = "default"
-BatUI.queue.currentAction = BatUI.queue.noAction
-BatUI.queue.actionTarget = BatUI.queue.defaultTarget
+BatUI.queue = BatUI.queue or {
+    commands = {},
+    noAction = "none",
+    defaultTarget = "default",
+    currentAction = "none",
+    actionTarget = "default",
+    repeatAction = false,
+}
 
 function BatUI.queue:addAction(action, position)
     if #self.commands == 0 and self.currentAction == "none" then
@@ -51,9 +53,11 @@ end
 
 function BatUI.queue.actionDone()
     local q = BatUI.queue
-    q.currentAction = q.noAction
-    if #q.commands > 0 then
-        q:nextAction()
+    if q.repeatAction == false then
+        q.currentAction = q.noAction
+        if #q.commands > 0 then
+            q:nextAction()
+        end
     end
 end
 

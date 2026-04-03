@@ -18,5 +18,15 @@ function BatUI.utils.cleanupCommandGags(_)
         killTrigger(triggerId)
     end
 end
-
 registerAnonymousEventHandler("sysDisconnectionEvent", "BatUI.utils.cleanupCommandGags")
+
+function BatUI.utils.comma_value(amount)
+    local formatted = amount
+    while true do
+        formatted, k = string.gsub(formatted, "^(-?%d+)(%d%d%d)", '%1,%2')
+        if (k==0) then
+            break
+        end
+    end
+    return formatted
+end
