@@ -4,4 +4,6 @@ if spTickedStr and string.sub(spTickedStr, 1, 1) == "+" then
 	if spTicked > 20 then
 		raiseEvent("BatUI.event.spTick")
 	end
+elseif not matches[2] then
+    deleteLine()
 end
