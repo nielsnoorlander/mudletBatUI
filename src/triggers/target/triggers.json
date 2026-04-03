@@ -1,0 +1,69 @@
+[
+  {
+    "name": "command",
+    "patterns": [
+      {
+        "pattern": "^target (.+)$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "report",
+    "patterns": [
+      {
+        "pattern": "^You are (now )?targetting (.+)\\.$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "heal",
+    "patterns": [
+      {
+        "pattern": "^You are now target-healing ([A-Za-z]+)\\.$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "inferior",
+    "patterns": [
+      {
+        "pattern": "^It is an inferior opponent\\.$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "consider",
+    "patterns": [
+      {
+        "pattern": "^The final estimation is that .*",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "gags",
+    "patterns": [
+      {
+        "pattern": "^You take a close look at .*",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You are now targetting .*",
+        "type": "regex"
+      },
+      {
+        "pattern": "^[@]?consider .*",
+        "type": "regex"
+      },
+      {
+        "pattern": "^Very easy, indeed[.]$",
+        "type": "regex"
+      }
+   ],
+    "script": "deleteLine()"
+  }
+]

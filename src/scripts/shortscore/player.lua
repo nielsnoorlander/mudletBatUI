@@ -28,6 +28,7 @@ BatUI.player = BatUI.player or {
     campingAvailable = true,
     fastCamp = false,
     combatTarget = "",
+    combatTargetAlias = "",
     healTarget = "",
 }
 

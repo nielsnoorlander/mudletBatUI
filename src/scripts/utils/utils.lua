@@ -7,9 +7,10 @@ function BatUI.utils.error(message)
     cecho(f "<orange>ERROR - <reset>{message}\n")
 end
 
-function BatUI.utils.sendAndIgnore(command)
+function BatUI.utils.sendAndIgnore(command, pattern)
     -- Ignore the next echoing of this command
-    table.insert(BatUI.utils.commandGags, tempRegexTrigger(f "^{command}$", [[ deleteLine() ]], 1))
+    local ignore = pattern or command
+    table.insert(BatUI.utils.commandGags, tempRegexTrigger(f "^{ignore}$", [[ deleteLine() ]], 1))
     send(command)
 end
 

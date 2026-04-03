@@ -1,0 +1,22 @@
+[
+  {
+    "name": "command",
+    "patterns": [
+      {
+        "pattern": "^You put your parry factor to ([0-9]+)[.]$",
+        "type": "regex"
+      }
+    ],
+    "script": "raiseEvent(\"BatUI.event.scoreUpdated\", { parry = tonumber(matches[2]) })"
+  },
+  {
+    "name": "gag",
+    "patterns": [
+      {
+        "pattern": "^parry [0-9]+$",
+        "type": "regex"
+      }
+    ],
+    "script": "deleteLine()"
+  }
+]

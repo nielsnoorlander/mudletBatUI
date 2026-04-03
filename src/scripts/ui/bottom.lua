@@ -330,7 +330,7 @@ function BatUI.bottom.status:load(parent)
         fontSize = 9,
         fgColor = "red",
         color = "#202020",
-        message = "Combat T",
+        message = "Combat",
         stylesheet = "padding-left:2px;"
     }, self.background)
     self.panels.combatTarget = Geyser.Label:new({
@@ -341,7 +341,7 @@ function BatUI.bottom.status:load(parent)
         height = panelHeight,
         fontSize = 9,
         fgColor = "white",
-        message = "Enemy",
+        message = "-",
         stylesheet = "padding-left:2px; background-color: black;"
     }, self.background)
     self.panels.healTargetLabel = Geyser.Label:new({
@@ -353,7 +353,7 @@ function BatUI.bottom.status:load(parent)
         fontSize = 9,
         fgColor = "green",
         color = "#202020",
-        message = "Heal T",
+        message = "Healing",
         stylesheet = "padding-left:2px;"
     }, self.background)
     self.panels.healTarget = Geyser.Label:new({
@@ -364,7 +364,7 @@ function BatUI.bottom.status:load(parent)
         height = panelHeight,
         fontSize = 9,
         fgColor = "white",
-        message = "Myself",
+        message = "-",
         stylesheet = "padding-left:2px; background-color: black;"
     }, self.background)
     yIndex = yIndex + panelHeight + 4
@@ -413,7 +413,7 @@ function BatUI.bottom.status:load(parent)
         height = panelHeight,
         fontSize = 9,
         fgColor = "yellow",
-        message = utils.comma_value("200120"),
+        message = "-",
         stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black;"
     }, self.background)
     yIndex = yIndex + panelHeight + 4
@@ -439,7 +439,7 @@ function BatUI.bottom.status:load(parent)
         height = panelHeight,
         fontSize = 9,
         fgColor = "yellow",
-        message = "51",
+        message = "-",
         stylesheet = "padding-left:2px; qproperty-alignment: 'AlignRight | AlignCenter'; background-color: black;"
     }, self.background)
     self.panels.experienceLabel = Geyser.Label:new({
@@ -645,8 +645,8 @@ registerNamedEventHandler("BatUI", "status.playerUpdated", "BatUI.event.playerUp
     for _, stat in ipairs(stats) do
         if stat == "cash" then p.cash:echo(utils.comma_value(player.cash or "0")) end
         if stat == "bank" then p.bank:echo(utils.comma_value(player.bank or "0")) end
-        if stat == "parry" then p.parry:echo(player.parry or "0") end
-        if stat == "experience" then p.experience:echo(utils.comma_value(player.experience or "0")) end
+        if stat == "parry" then p.parry:echo(player.parry or 0) end
+        if stat == "experience" then p.experience:echo(utils.comma_value(player.experience or 0)) end
         if stat == "combatTarget" then p.combatTarget:echo(player.combatTarget) end
         if stat == "healTarget" then p.healTarget:echo(player.healTarget) end
     end
