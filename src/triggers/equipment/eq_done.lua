@@ -1,3 +1,3 @@
 setTriggerStayOpen("Update equipment", 0)
 deleteLine()
-BatUI.left.eq.updateEquipment = false
+tempTimer(1, function () BatUI.left.eq.updateEquipment = false end)

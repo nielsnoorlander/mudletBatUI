@@ -3,7 +3,7 @@
     "name": "channel messages",
     "patterns": [
       {
-        "pattern": "^(Saint |Ghost of )?[A-Z][a-z]+( the Helper)? [\\[(<{](newbie|wanted|sales|party|bat|chat|ghost)[\\])>}]: .*",
+        "pattern": "^(Saint |Ghost of |Wispy shades of )?[A-Z][a-z]+( the Helper)? [\\[(<{](newbie|wanted|sales|party|bat|chat|ghost)[\\])>}]: .*",
         "type": "regex"
       }
     ],

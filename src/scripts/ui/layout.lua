@@ -1,6 +1,7 @@
 BatUI = BatUI or {}
 BatUI.layout = BatUI.layout or {}
 BatUI.layout.mainWidth, BatUI.layout.mainHeight = getMainWindowSize()
+BatUI.layout.panelStyle = [[ border: 1px solid white; background-color: #101010;]]
 
 function BatUI.layout:load()
     -- Make this config overridable at a later stage?

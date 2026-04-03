@@ -1,0 +1,45 @@
+[
+  {
+    "name": "awake",
+    "patterns": [
+      {
+        "pattern": "^You awaken from your short rest, and feel slightly better\\.$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^Something disturbs you and you cannot concentrate any longer\\.$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "available",
+    "patterns": [
+      {
+        "pattern": "^You feel a bit tired\\.$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You stretch yourself and consider (about )?camping\\.$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You feel like camping a little\\.$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "sleep",
+    "patterns": [
+      {
+        "pattern": "^You lie down and begin to rest for a while\\.$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You sing 'There is nothing you can do, when you realize with fright.*",
+        "type": "regex"
+      }
+    ]
+  }
+]

@@ -14,6 +14,10 @@
       {
         "pattern": "^You start (concentrating on the skill|chanting|preparing for the tunneling|examining the support and try to figure out how to enhance them|to channel the forces magical by chanting the runes)[.]$",
         "type": "regex"
+      },
+      {
+        "pattern": "^You start (casting|using) .+[.]$",
+        "type": "regex"
       }
     ]
   },
@@ -54,6 +58,10 @@
         "type": "regex"
       },
       {
+        "pattern": "^You finish the last repeated action\\.$",
+        "type": "regex"
+      },
+      {
         "pattern": "^You dig through the rubble and create a new extension to your mine[.]$",
         "type": "regex"
       },
@@ -91,15 +99,15 @@
     "name": "command",
     "patterns": [
       {
-        "pattern": "^(use|cast|sing|chant) ['](.+)['] (.*)$",
+        "pattern": "^(repeat ([0-9]+ )?)?(use|cast|sing|chant) ['](.+)['] (.*)$",
         "type": "regex"
       },
       {
-        "pattern": "^(use|cast|sing|chant) (.+) at (.*)$",
+        "pattern": "^(repeat ([0-9]+ )?)?(use|cast|sing|chant) (.+) at (.*)$",
         "type": "regex"
       },
       {
-        "pattern": "^(use|cast|sing|chant) [']?(.+?)[']?[ ]?$",
+        "pattern": "^(repeat ([0-9]+ )?)?(use|cast|sing|chant) [']?(.+?)[']?[ ]?$",
         "type": "regex"
       },
       {
