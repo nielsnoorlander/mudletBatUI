@@ -640,6 +640,7 @@ registerNamedEventHandler("BatUI", "status.panels.sleep", "BatUI.event.updatedTi
 end)
 
 registerNamedEventHandler("BatUI", "status.playerUpdated", "BatUI.event.playerUpdated", function(_, stats)
+    local utils = BatUI.utils
     local player = BatUI.player
     local p = BatUI.bottom.status.panels
     for _, stat in ipairs(stats) do
