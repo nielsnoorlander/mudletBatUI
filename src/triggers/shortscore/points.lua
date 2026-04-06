@@ -9,3 +9,4 @@ stats.epcurrent = tonumber(matches[6])
 stats.epmax = tonumber(matches[7])
 
 raiseEvent("BatUI.event.scoreUpdated", stats)
+raiseEvent("BatMap.event.locationUpdated", matches[8], matches[9], matches[10])
