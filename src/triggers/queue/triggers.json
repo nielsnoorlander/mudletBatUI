@@ -54,7 +54,7 @@
         "type": "regex"
       },
       {
-        "pattern": "^You are (done with the chant| prepared to do the skill)[.]$",
+        "pattern": "^You are done with the chant[.]$",
         "type": "regex"
       },
       {
