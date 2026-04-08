@@ -59,6 +59,29 @@ function BatUI.left.eq:load(parent)
         message = [[<center>EQUIPMENT</center>]]
     }, self.background)
 
+    self.eqset = Geyser.Label:new({
+        name = "BatUI.left.eq.eqset",
+        x = "80%",
+        y = 1,
+        width = "20%-1",
+        height = "100%-2",
+        color = "black",
+        fgColor = "green",
+        message = "SPR",
+        }, self.label)
+    self.eqset:setAlignment("center")
+
+    self.weight = Geyser.Label:new({
+        name = "BatUI.left.eq.weight",
+        x = "1",
+        y = 1,
+        width = "20%-1",
+        height = "100%-2",
+        color = "black",
+        }, self.label)
+    self.weight:setAlignment("center")
+    self.weight:cecho("<yellow>0 <white>kg")
+
     self.console = Geyser.MiniConsole:new({
         name = "BatUI.left.eq.console",
         x = 5,
@@ -81,3 +104,17 @@ function BatUI.left.eq:copyLine()
         deleteLine()
     end
 end
+
+registerNamedEventHandler("BatUI", "status.playerUpdated.left", "BatUI.event.playerUpdated", function(_, stats)
+    local player = BatUI.player
+    local p = BatUI.left.eq
+    for _, stat in ipairs(stats) do
+        if stat == "weight" then p.weight:cecho(f"<yellow>{player.weight} <white>kg") end
+        if stat == "eqset" then
+            local config = BatConfig and BatConfig.eqsets and BatConfig.eqsets[player.eqset]
+            local color = config and config.color or "green"
+            local eqset = config and config.name or string.upper(string.sub(player.eqset, 1, 3))
+            p.eqset:cecho(f"<{color}>{eqset}")
+        end
+    end
+end)

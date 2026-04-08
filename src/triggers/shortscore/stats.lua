@@ -17,4 +17,6 @@ stats.alignment = matches[14]
 stats.explored = tonumber(matches[15])
 stats.age = matches[16]
 
+if stats.eqset == "0" then stats.eqset = "none" end
+
 raiseEvent("BatUI.event.scoreUpdated", stats)
