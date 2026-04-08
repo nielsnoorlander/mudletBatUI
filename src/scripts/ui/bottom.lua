@@ -639,7 +639,7 @@ registerNamedEventHandler("BatUI", "status.panels.sleep", "BatUI.event.updatedTi
     end
 end)
 
-registerNamedEventHandler("BatUI", "status.playerUpdated", "BatUI.event.playerUpdated", function(_, stats)
+registerNamedEventHandler("BatUI", "status.playerUpdated.bottom", "BatUI.event.playerUpdated", function(_, stats)
     local utils = BatUI.utils
     local player = BatUI.player
     local p = BatUI.bottom.status.panels
