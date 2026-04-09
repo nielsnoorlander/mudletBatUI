@@ -97,12 +97,10 @@ function BatUI.left.eq:load(parent)
 end
 
 function BatUI.left.eq:copyLine()
-    if BatUI.left.eq.updateEquipment ~= false then
         selectCurrentLine()
         copy()
         self.console:appendBuffer()
         deleteLine()
-    end
 end
 
 registerNamedEventHandler("BatUI", "status.playerUpdated.left", "BatUI.event.playerUpdated", function(_, stats)

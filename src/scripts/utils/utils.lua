@@ -31,3 +31,14 @@ function BatUI.utils.comma_value(amount)
     end
     return formatted
 end
+
+function BatUI.utils.firstToUpper(str)
+    return (str:gsub("^%l", string.upper))
+end
+
+function BatUI.utils.rpad(str, len, char)
+    if char == nil then
+        char = ' '
+    end
+    return str .. string.rep(char, len - #str)
+end
