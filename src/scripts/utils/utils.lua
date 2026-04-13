@@ -10,16 +10,13 @@ end
 function BatUI.utils.sendAndIgnore(command, pattern)
     -- Ignore the next echoing of this command
     local ignore = pattern or command
-    table.insert(BatUI.utils.commandGags, tempRegexTrigger(f "^{ignore}$", [[ deleteLine() ]], 1))
+    BatUI.utils.gagOnce(ignore)
     send(command)
 end
 
-function BatUI.utils.cleanupCommandGags(_)
-    for _, triggerId in pairs(BatUI.utils.commandGags) do
-        killTrigger(triggerId)
-    end
+function BatUI.utils.gagOnce(exactMatch)
+    tempRegexTrigger(f "^{exactMatch}$", [[ deleteLine() ]], 1)
 end
-registerAnonymousEventHandler("sysDisconnectionEvent", "BatUI.utils.cleanupCommandGags")
 
 function BatUI.utils.comma_value(amount)
     local formatted = amount
