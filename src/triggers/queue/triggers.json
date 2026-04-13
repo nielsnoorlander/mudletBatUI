@@ -92,6 +92,14 @@
       {
         "pattern": "^You admire your handiwork, as you slightly patch the supports[.]$",
         "type": "regex"
+      },
+      {
+        "pattern": "^You slightly manage to bolster the supports[.]$",
+        "type": "regex"
+      },
+      {
+        "pattern": "^You attempt to make an extension to your mine, but it seems .+$",
+        "type": "regex"
       }
     ]
   },

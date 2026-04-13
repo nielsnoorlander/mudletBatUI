@@ -6,5 +6,5 @@ local wielded = matches[5]
 
 deleteLine()
 if wielded == "unarmed" then
-    c:echo(matches[1]:gsub("unarmed",""))
+    c:echo(matches[1]:gsub("unarmed","\n"))
 end
