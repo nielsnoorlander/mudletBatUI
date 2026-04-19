@@ -40,6 +40,72 @@ function BatUI.left.score:load(parent)
         color = "#1768cc",
         message = [[<center>SCORE</center>]]
     }, self.background)
+
+    self.stats = {
+        strength = BatUI.ScoreComponent:new({
+            name = "BatUI.left.score.stat.strength",
+            width = "33%-8",
+            height = "20",
+            x = 4, y = 28,
+            statVariable = "BatUI.player.strength",
+            baseVariable = "BatConfig.stats.strength",
+            stat = "Str"
+        }, self.background),
+        dexterity = BatUI.ScoreComponent:new({
+            name = "BatUI.left.score.stat.dexterity",
+            width = "33%-8",
+            height = "20",
+            x = "33%+4", y = 28,
+            statVariable = "BatUI.player.dexterity",
+            baseVariable = "BatConfig.stats.dexterity",
+            stat = "Dex"
+        }, self.background),
+        constitution = BatUI.ScoreComponent:new({
+            name = "BatUI.left.score.stat.constitution",
+            width = "34%-8",
+            height = "20",
+            x = "66%+4", y = 28,
+            statVariable = "BatUI.player.constitution",
+            baseVariable = "BatConfig.stats.constitution",
+            stat = "Con"
+        }, self.background),
+        intelligence = BatUI.ScoreComponent:new({
+            name = "BatUI.left.score.stat.intelligence",
+            width = "33%-8",
+            height = "20",
+            x = 4, y = 52,
+            statVariable = "BatUI.player.intelligence",
+            baseVariable = "BatConfig.stats.intelligence",
+            stat = "Int"
+        }, self.background),
+        wisdom = BatUI.ScoreComponent:new({
+            name = "BatUI.left.score.stat.wisdom",
+            width = "33%-8",
+            height = "20",
+            x = "33%+4", y = 52,
+            statVariable = "BatUI.player.wisdom",
+            baseVariable = "BatConfig.stats.wisdom",
+            stat = "Wis"
+        }, self.background),
+        charisma = BatUI.ScoreComponent:new({
+            name = "BatUI.left.score.stat.charisma",
+            width = "34%-8",
+            height = "20",
+            x = "66%+4", y = 52,
+            statVariable = "BatUI.player.charisma",
+            baseVariable = "BatConfig.stats.charisma",
+            stat = "Cha"
+        }, self.background)
+        alignment = BatUI.ScoreComponent:new({
+            name = "BatUI.left.score.stat.alignment",
+            width = "50%-8",
+            height = "20",
+            x = 4, y = 70,
+            statVariable = "BatUI.player.alignment",
+            baseVariable = "BatConfig.stats.alignment",
+            stat = "Align"
+        }, self.background)
+    }
 end
 
 function BatUI.left.eq:load(parent)
@@ -106,6 +172,7 @@ end
 registerNamedEventHandler("BatUI", "status.playerUpdated.left", "BatUI.event.playerUpdated", function(_, stats)
     local player = BatUI.player
     local p = BatUI.left.eq
+    local st = BatUI.left.score.stats
     for _, stat in ipairs(stats) do
         if stat == "weight" then p.weight:cecho(f"<yellow>{player.weight} <white>kg") end
         if stat == "eqset" then
@@ -114,5 +181,6 @@ registerNamedEventHandler("BatUI", "status.playerUpdated.left", "BatUI.event.pla
             local eqset = config and config.name or string.upper(string.sub(player.eqset, 1, 3))
             p.eqset:cecho(f"<{color}>{eqset}")
         end
+        if st[stat] then st[stat]:update() end
     end
 end)

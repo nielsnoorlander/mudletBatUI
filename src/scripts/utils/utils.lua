@@ -39,3 +39,10 @@ function BatUI.utils.rpad(str, len, char)
     end
     return str .. string.rep(char, len - #str)
 end
+
+function BatUI.utils.lpad(str, len, char)
+    if char == nil then
+        char = ' '
+    end
+    return string.rep(char, len - #str) .. str
+end
