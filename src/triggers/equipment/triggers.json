@@ -40,7 +40,7 @@
         "name": "limbs",
         "patterns": [
           {
-            "pattern": "^(upper |lower )?(right|left) (hand|paw)[ ]+(.+)$",
+            "pattern": "^(upper |lower )?(right|left) (hand|paw|wing)[ ]+(.+)$",
             "type": "regex"
           }
         ]
