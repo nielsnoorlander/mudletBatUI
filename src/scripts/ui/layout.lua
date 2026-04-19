@@ -54,8 +54,5 @@ function BatUI.layout:resizeLayout(currentWidth, currentHeight)
     setBorderLeft((ratios.left / 100) * currentWidth + border)
     setBorderRight((ratios.right / 100) * currentWidth + border)
     setBorderBottom((ratios.bottom / 100) * currentHeight + border)
-    self.left:flash()
-    self.right:flash()
-    self.bottom:flash()
 end
 
