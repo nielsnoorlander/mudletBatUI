@@ -1,3 +1,3 @@
-setTriggerStayOpen("Update equipment", 0)
+BatUI.left.eq.updateEquipment = false
 deleteLine()
-tempTimer(1, function () BatUI.left.eq.updateEquipment = false end)
+send("@sc")
