@@ -48,7 +48,7 @@ function BatUI.left.score:load(parent)
             height = "20",
             x = 4, y = 28,
             statVariable = "BatUI.player.strength",
-            baseVariable = "BatConfig.stats.strength",
+            baseVariable = "BatConfig.stats[BatUI.player.name].strength",
             stat = "Str"
         }, self.background),
         dexterity = BatUI.ScoreComponent:new({
@@ -57,7 +57,7 @@ function BatUI.left.score:load(parent)
             height = "20",
             x = "33%+4", y = 28,
             statVariable = "BatUI.player.dexterity",
-            baseVariable = "BatConfig.stats.dexterity",
+            baseVariable = "BatConfig.stats[BatUI.player.name].dexterity",
             stat = "Dex"
         }, self.background),
         constitution = BatUI.ScoreComponent:new({
@@ -66,7 +66,7 @@ function BatUI.left.score:load(parent)
             height = "20",
             x = "66%+4", y = 28,
             statVariable = "BatUI.player.constitution",
-            baseVariable = "BatConfig.stats.constitution",
+            baseVariable = "BatConfig.stats[BatUI.player.name].constitution",
             stat = "Con"
         }, self.background),
         intelligence = BatUI.ScoreComponent:new({
@@ -75,7 +75,7 @@ function BatUI.left.score:load(parent)
             height = "20",
             x = 4, y = 52,
             statVariable = "BatUI.player.intelligence",
-            baseVariable = "BatConfig.stats.intelligence",
+            baseVariable = "BatConfig.stats[BatUI.player.name].intelligence",
             stat = "Int"
         }, self.background),
         wisdom = BatUI.ScoreComponent:new({
@@ -84,7 +84,7 @@ function BatUI.left.score:load(parent)
             height = "20",
             x = "33%+4", y = 52,
             statVariable = "BatUI.player.wisdom",
-            baseVariable = "BatConfig.stats.wisdom",
+            baseVariable = "BatConfig.stats[BatUI.player.name].wisdom",
             stat = "Wis"
         }, self.background),
         charisma = BatUI.ScoreComponent:new({
@@ -93,17 +93,8 @@ function BatUI.left.score:load(parent)
             height = "20",
             x = "66%+4", y = 52,
             statVariable = "BatUI.player.charisma",
-            baseVariable = "BatConfig.stats.charisma",
+            baseVariable = "BatConfig.stats[BatUI.player.name].charisma",
             stat = "Cha"
-        }, self.background)
-        alignment = BatUI.ScoreComponent:new({
-            name = "BatUI.left.score.stat.alignment",
-            width = "50%-8",
-            height = "20",
-            x = 4, y = 70,
-            statVariable = "BatUI.player.alignment",
-            baseVariable = "BatConfig.stats.alignment",
-            stat = "Align"
         }, self.background)
     }
 end

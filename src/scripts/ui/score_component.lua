@@ -41,7 +41,7 @@ function BatUI.ScoreComponent:update()
         if self.baseVariable ~= "" then
         debugc(string.format(
                "ScoreComponent named %s is trying to update with an invalid base value. Using the defaultBase instead. statVariable: '%s' baseVariable: '%s'",
-               self.name, self.currentVariable, self.maxVariable))
+               self.name, self.statVariable, self.baseVariable))
         end
     end
     local diffColor = "<lightgrey>"
