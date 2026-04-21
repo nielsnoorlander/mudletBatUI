@@ -1,34 +1,45 @@
 [
   {
-    "name": "Update equipment",
+    "name": "eq_update",
     "patterns": [
       {
         "pattern": "^Your equipment [[]brief mode[]]:$",
         "type": "regex"
       }
     ],
-    "fireLength": "45",
+    "fireLength": "1",
     "children": [
       {
-        "name": "eq line",
+        "name": "eq_line",
         "patterns": [
           {
             "pattern": "^[A-Z][a-z ]+[a-z][:] .+$",
             "type": "regex"
-          }
-        ]
-      },
-      {
-        "name": "eq done",
-        "patterns": [
+          },
           {
-            "pattern": "^[A-Z][a-z]+ is not idle[.]$",
+            "pattern": "^Nothing\\.$",
             "type": "regex"
           }
         ]
+      }
+    ]
+  },
+  {
+    "name": "eq_slots_start",
+    "patterns": [
+      {
+        "pattern": "^Your current (armour) status is:$",
+        "type": "regex"
       },
       {
-        "name": "slots",
+        "pattern": "^Your current (limb) status is:$",
+        "type": "regex"
+      }
+    ],
+    "fireLength": "1",
+    "children": [
+      {
+        "name": "eq_slots",
         "patterns": [
           {
             "pattern": "^  You have ([a-z]+) free ([a-z]+) slots?$",
@@ -37,7 +48,7 @@
         ]
       },
       {
-        "name": "limbs",
+        "name": "eq_limbs",
         "patterns": [
           {
             "pattern": "^(upper |lower )?(right|left) (hand|paw|wing)[ ]+(.+)$",
@@ -46,32 +57,27 @@
         ]
       },
       {
-        "name": "slots start",
-        "patterns": [
-          {
-            "pattern": "^Your current (armour) status is:$",
-            "type": "regex"
-          },
-          {
-            "pattern": "^Your current (limb) status is:$",
-            "type": "regex"
-          }
-        ]
-      },
-      {
-        "name": "empty",
+        "name": "eq_empty",
         "patterns": [
           {
             "pattern": "^$",
             "type": "regex"
           }
-        ],
-        "script": "deleteLine()"
+        ]
       }
     ]
   },
   {
-    "name": "Equipment changed",
+    "name": "eq_done",
+    "patterns": [
+      {
+        "pattern": "^[A-Z][a-z]+ is not idle[.]$",
+        "type": "regex"
+      }
+    ]
+  },
+  {
+    "name": "eq_changed",
     "patterns": [
       {
         "pattern": "^You (wear|remove|wield|sheath|unsheath) .*",
